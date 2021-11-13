@@ -1,63 +1,65 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<script src="matter.js" type="text/javascript"></script>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-		<link rel="stylesheet" href="mattertest.css">
+<!doctype html>
+<html lang="en">
+		<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+
+		<title>Pengomb</title>
+
 		<link rel="preconnect" href="https://fonts.gstatic.com">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bungee+Shade&display=swap" rel="stylesheet">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js" integrity="sha512-WIklPM6qPCIp6d3fSSr90j+1unQHUOoWDS4sdTiR8gxUTnyZ8S2Mr8e10sKKJ/bhJgpAa/qG068RDkg6fIlNFA==" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/addons/p5.sound.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.14.1/matter.min.js" integrity="sha512-zkr6K5aibGz5uIkC28VJQrfg/YDadqtqZPzXiBhUHUSGGqGzmEvK70f+yjV/qCRT21Zsqnc0ABGt5GUakGh16g==" crossorigin="anonymous"></script>
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="style.css">
+ 
+	</head>
 
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="bmi.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-
-</head>
-<body>
-	<div class="container-fluid text-center">
-		<h1>Projectile motion simulation</h1>
-		<form class="form">
+	<body>
+    <div class="container">
+			<div id="viewport_container">
+				<!-- game viewport goes here-->
+			</div>
+			<div class="controller">
+			</div>
+		</div>
+    
+  	<div class="container-fluid text-center">
+		<h1>Ball throwing simulation</h1>
+		<!--<form class="form">
 			<input type="text" placeholder="Angle" class="frminp" id="angl">
 		<input type="text" placeholder="Velocity" class="frminp" id="vel">
+				</form>-->
+		<!--<label for="rst">Coeff. of Restitution</label><input type="text" value="1" placeholder="Coeff. of Restitution" class="frminp" id="rst">	-->
 		
-		
-	   <button type="button" class="btn btn-default" onClick="project()">Start</button>
-		</form>
-		<label for="rst">Coeff. of Restitution</label><input type="text" value="1" placeholder="Coeff. of Restitution" class="frminp" id="rst">	
+    <label for="setGrav">Gravity</label><input type="text" value="9.8" placeholder="Set Gravity" class="frminp" id="setGrav">
 
-      <h1>Custom Range Slider</h1>
-      <p>Drag the slider to display the current value.</p>
-
-      <div class="slidecontainer">
-        <input type="range" min="1" max="180" value="90" class="slider" id="myAngleRange">
-        <p>Angle: <span id="AngleValue"></span></p>
-      </div>
+    <hr>	
 
       <div class="slidecontainer">
         <input type="range" min="1" max="100" value="50" class="slider" id="myVelocityRange">
         <p>Velocity: <span id="VelocityValue"></span></p>
       </div>
 
-
       <div class="slidecontainer">
+        <input type="range" min="1" max="180" value="90" class="slider" id="myAngleRange" oninput="showVal(this.value, this.id)" onchange="showVal(this.value, this.id)">
+        <p>Angle: <span id="AngleValue"></span></p>
+      </div>
+
+
+    <!--<div class="slidecontainer">
         <input type="range" min="1" max="100" value="50" class="slider" id="myTestRange" oninput="showVal(this.value, this.id)" onchange="showVal(this.value, this.id)">
         <p>Test: <span id="myTestRange"></span></p>
-      </div>
+      </div>-->
+
+      <button type="button" class="btn btn-default" onClick="project()">Start</button>
 
 	    <div id="renderport"></div>
 
 	</div>
 
-	<script src="mattertest.js">
-	
-	</script>
+	<script src="script.js"></script>
 
-<footer class="footer" id="ftr">
-	Made by <a href="https://github.com/beetrandahiya">Prakrisht Dahiya</a> using <a href=""><img src="https://miro.medium.com/max/1000/1*7eTJiUndx4MiCrLuJkQqdA.png" width="80px"></a>
-</footer>
-</body>
+	</body>
 </html>
